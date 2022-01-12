@@ -8,11 +8,11 @@ module.exports = () => ({
       connector: "bookshelf",
       settings: {
         client: "postgres",
-        host: ${db-postgres.HOSTNAME},
-        port: ${db-postgres.PORT},
-        database: ${db-postgres.DATABASE},
-        username: ${db-postgres.USERNAME},
-        password: ${db-postgres.PASSWORD},
+        host: "db-postgres-do-user-211953-0.b.db.ondigitalocean.com",
+        port: "25060",
+        database: "defaultdb",
+        username: "doadmin",
+        password: "PHLXMyWRhDzwJw8J",
         ssl: {
           rejectUnauthorized: false,
         },
