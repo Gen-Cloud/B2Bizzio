@@ -4,54 +4,84 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product",
+    "displayName": "Products",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
-    "brand": {
+    "product_brand": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::brand.brand",
       "inversedBy": "products"
     },
-    "Name": {
+    "product_name": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "unique": false
+    },
+    "product_description": {
       "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "required": true
     },
-    "Description": {
-      "type": "text"
+    "product_price": {
+      "type": "decimal",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     },
-    "Barcode": {
-      "type": "biginteger",
-      "unique": true
-    },
-    "Price": {
-      "type": "decimal"
-    },
-    "Promotional": {
-      "type": "boolean",
-      "default": false
-    },
-    "Picture": {
+    "product_image_main": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
-    "Color": {
-      "type": "enumeration",
-      "enum": [
-        "green",
-        "red",
-        "blue",
-        "yellow"
-      ]
+    "product_slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "product_id": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "required": true,
+      "unique": true
     }
   }
 }
