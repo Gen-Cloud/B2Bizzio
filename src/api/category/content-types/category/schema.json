@@ -56,11 +56,11 @@
       "required": true,
       "default": 0
     },
-    "categories_nesteds": {
+    "categoriy_nested_names": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::category-nested.category-nested",
-      "mappedBy": "category"
+      "mappedBy": "category_parent_name"
     }
   }
 }

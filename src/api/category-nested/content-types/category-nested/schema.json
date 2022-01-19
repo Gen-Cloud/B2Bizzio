@@ -46,32 +46,11 @@
       "required": true,
       "unique": false
     },
-    "category_parent_id": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "integer",
-      "required": true
-    },
-    "category": {
+    "category_parent_name": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
-      "inversedBy": "categories_nesteds"
-    },
-    "categories_nested": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category-nested.category-nested",
-      "inversedBy": "categories_nesteds"
-    },
-    "categories_nesteds": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category-nested.category-nested",
-      "mappedBy": "categories_nested"
+      "inversedBy": "categoriy_nested_names"
     }
   }
 }
