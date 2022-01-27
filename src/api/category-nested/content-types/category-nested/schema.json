@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "category_name": {
+    "nested_name": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -26,7 +26,7 @@
       "required": true,
       "unique": true
     },
-    "category_nested_slug": {
+    "nested_slug": {
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -36,7 +36,7 @@
       "required": true,
       "unique": false
     },
-    "category_id": {
+    "nested_id": {
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -46,11 +46,67 @@
       "required": true,
       "unique": false
     },
-    "category_parent_name": {
+    "category_rel_parent": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
-      "inversedBy": "categoriy_nested_names"
+      "inversedBy": "category_rel_nested"
+    },
+    "category_parent_id": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "required": true,
+      "unique": false
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "categories_nested"
+    },
+    "nested_position": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer"
+    },
+    "nested_banner": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "nested_description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
+    },
+    "nested_logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }
