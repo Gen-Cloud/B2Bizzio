@@ -34,12 +34,16 @@ module.exports = createCoreController('api::product.product', () => ({
             populate: ['product_image_main'],
         }
         const { data } = await super.find(ctx);
-        const { attributes } = data[0]
-        const { product_image_main } = attributes;
-        const image_url = product_image_main.data.attributes.url
-        // console.log(data, attributes)
+        if (data.length != 0) {
+            const { attributes } = data[0]
+            const { product_image_main } = attributes;
+            const image_url = product_image_main.data.attributes.url
 
-        return { image_url: ((image_url) ? "b-2-bizzio-u2exi.ondigitalocean.app" + image_url : null) }
+            return { image_url: ((image_url) ? "b-2-bizzio-u2exi.ondigitalocean.app" + image_url : null) }
+        }
+        else {
+            return { image_url: null }
+        }
     }
 }));
 
