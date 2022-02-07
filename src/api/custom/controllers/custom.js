@@ -38,7 +38,8 @@ module.exports = createCoreController('api::product.product', () => ({
         const { product_image_main } = attributes;
         const image_url = product_image_main.data.attributes.url
         // console.log(data, attributes)
-        return { image_url:("b-2-bizzio-u2exi.ondigitalocean.app"+image_url)}
+
+        return { image_url: ((image_url) ? "b-2-bizzio-u2exi.ondigitalocean.app" + image_url : null) }
     }
 }));
 
